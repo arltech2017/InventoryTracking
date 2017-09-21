@@ -1,3 +1,7 @@
+#!/usr/bin/env python3.6
+# coding=utf-8
+
+
 class Footwear:
     """
       >>> f = Footwear('Sling-back', 8.5, '1234-0')
@@ -25,29 +29,24 @@ class Footwear:
       >>> f2 == f4
       False
     """
-    def __init__(self, style, size, sku, shoetype=None):
+
+    def __init__(self, style, size, sku):
+        """Footwear(str, int, str) => footwear object"""
         self.style = style
         self.size = size
         self.sku = sku
-        if shoetype is not None:
-            self.type = shoetype
-        elif hasattr(self, 'shoetype'):
-            self.type = self.shoetype
-        elif type(self).__name__ == 'Footwear':
-            self.type = 'Unspecified'
-        else:
-            self.type = type(self).__name__
+        self.type = None
+
+    def __str__(self):
+        """self.to_s() => str("{syle} (size {size})")"""
+        string = "{} - ".format(self.type) if self.type else ""
+        string += "{} ({})".format(self.style, self.print_size())
+        return string
 
     def print_size(self):
         if int(self.size) == self.size:
             return 'size {0}'.format(int(self.size))
         return 'size {0}½'.format(int(self.size))
-
-    def __str__(self):
-        ret = '{0} ({1})'.format(self.style, self.print_size())
-        if self.type != 'Unspecified':
-            return '{0} - {1}'.format(self.type, ret)
-        return ret
 
     def __eq__(self, other):
         return self.type == other.type and self.style == other.style and \
@@ -60,6 +59,7 @@ class Boot(Footwear):
       >>> print(b)
       Boot - Hiking (size 11½)
     """
+    type = 'Boot'
 
 class Shoe(Footwear):
     """
@@ -67,6 +67,8 @@ class Shoe(Footwear):
       >>> print(s)
       Shoe - Generic (size 9½)
     """
+    type = 'Shoe'
+
 
 class DressShoe(Shoe):
     """
@@ -74,7 +76,8 @@ class DressShoe(Shoe):
       >>> print(ds)
       Dress Shoe - Sling-back (size 8½)
     """
-    shoetype='Dress Shoe'
+    type = 'Dress Shoe'
+
 
 class CasualShoe(Shoe):
     """
@@ -82,7 +85,8 @@ class CasualShoe(Shoe):
       >>> print(cs)
       Casual Shoe - Moccasin (size 12½)
     """
-    shoetype='Casual Shoe'
+    type = 'Casual Shoe'
+
 
 if __name__ == '__main__':
     import doctest
