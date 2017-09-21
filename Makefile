@@ -7,9 +7,11 @@ ROOT:=$(dir $(realpath $(lastword $(MAKEFILE_LIST))))# https://stackoverflow.com
 SRC_DIR:=$(ROOT)/$(SRC_DIR)
 TEST_DIR:=$(ROOT)/$(TEST_DIR)
 
+.PHONY: test
 test: test-pycodestyle
 	cd $(SRC_DIR) && $(PYTHON) -m doctest $(TEST_DIR)/**
 
+.PHONY: test-pycodestyle
 test-pycodestyle:
 	pycodestyle $(SRC_DIR)
 
