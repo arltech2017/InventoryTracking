@@ -1,6 +1,9 @@
+#!/usr/bin/env python3.6
+# coding=utf-8
+
 import random
 import json
-from footwear import Boot, DressShoe, CasualShoe
+from .footwear import Boot, DressShoe, CasualShoe
 
 
 def make_catalog(n):
@@ -53,4 +56,3 @@ def save_catalog(catalog, fname):
     catalog = [item.__dict__ for item in catalog]
     f.write(json.dumps(catalog))
     f.close()
-

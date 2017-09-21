@@ -1,3 +1,7 @@
+#!/usr/bin/env python3.6
+# coding=utf-8
+
+
 class BinItem:
     """A warehouse bin item consisting of a sku number and quantity."""
     def __init__(self, sku, quantity):
