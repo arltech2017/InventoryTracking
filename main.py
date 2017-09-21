@@ -7,4 +7,3 @@ if (len(sys.argv) > 1) and (sys.argv[1] == 'test'):
         tests = os.listdir("tests/")
         for file in tests:
             doctest.testfile("tests/{}".format(file))
-        exit(0)
