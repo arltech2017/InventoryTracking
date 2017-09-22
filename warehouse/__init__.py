@@ -3,6 +3,6 @@
 
 from . import footwear
 from . import bin
-from . import warehouse_db
+from . import database
 
-__all__ = ["footwear", "bin", "warehouse_db"]
+__all__ = ["footwear", "bin", "database.py"]
