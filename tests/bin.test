@@ -1,6 +1,6 @@
 Tests for BinItems and Bins
 
-  >>> from src.warehouse import BinItem, Bin
+  >>> from src.bin import BinItem, Bin
 
 
 BinItems
