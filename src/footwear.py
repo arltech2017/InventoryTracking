@@ -61,6 +61,7 @@ class Boot(Footwear):
     """
     type = 'Boot'
 
+
 class Shoe(Footwear):
     """
       >>> s = Shoe('Generic', 9.5, '1234-23')

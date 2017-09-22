@@ -1,6 +1,5 @@
 #!/usr/bin/env python3.6
 # coding=utf-8
-
 import random
 import json
 from .footwear import Boot, DressShoe, CasualShoe
