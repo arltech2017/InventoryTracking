@@ -46,7 +46,7 @@ def get_catalog(fname):
         else:
             catalog[index] = CasualShoe(style, size, sku)
 
-    return catalog   
+    return catalog
 
 
 def save_catalog(catalog, fname):

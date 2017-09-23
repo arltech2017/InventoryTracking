@@ -5,13 +5,13 @@ We will need to be able to generate a catalog of footwear for testing purposes,
 and to read and write the catalog to a file so that the same catalog can be
 used repeatedly. Let's choose some names for the functions that will do this.
 
-  >>> from src.warehouse_db import make_catalog, get_catalog, save_catalog
+  >>> from warehouse import *
 
 Now we need to be able to make a catalog, save it, and read it back in.
 
-  >>> cat1 = make_catalog(5)
-  >>> save_catalog(cat1, 'cat.dat')
-  >>> cat2 = get_catalog('cat.dat')
+  >>> cat1 = database.make_catalog(5)
+  >>> database.save_catalog(cat1, 'cat.dat')
+  >>> cat2 = database.get_catalog('cat.dat')
 
 Now we need to verify that the two catalogs contain the 'same' stuff.
 
