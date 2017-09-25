@@ -1,0 +1,7 @@
+RESTful examples:
+  GET localhost/api/warehouse/bin{#}/{sku}
+  PUT localhost/api/warehouse/bin{#}/{sku}
+  DELETE localhost/api/warehouse/bin{#}/{sku}
+  GET localhost/api/warehouse/bin{#}
+  GET localhost/api/warehouse
+  GET localhost /api
