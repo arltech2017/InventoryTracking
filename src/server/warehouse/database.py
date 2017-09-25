@@ -2,7 +2,7 @@
 # coding=utf-8
 import random
 import json
-from .footwear import Boot, DressShoe, CasualShoe
+from footwear import Boot, DressShoe, CasualShoe
 
 
 def make_catalog(n):
