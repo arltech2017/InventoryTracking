@@ -55,3 +55,7 @@ def save_catalog(catalog, fname):
     catalog = [item.__dict__ for item in catalog]
     f.write(json.dumps(catalog))
     f.close()
+
+def get_bin(num, sku):
+    """select style, size, sku, type from thing"""
+    pass
