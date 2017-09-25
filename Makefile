@@ -8,7 +8,7 @@ SRC_DIR:=$(ROOT)/$(SRC_DIR)
 TEST_DIR:=$(ROOT)/$(TEST_DIR)
 
 .PHONY: test
-test: test-pycodestyle
+test:
 	cd $(SRC_DIR) && $(PYTHON) -m doctest $(TEST_DIR)/**
 
 .PHONY: test-pycodestyle
