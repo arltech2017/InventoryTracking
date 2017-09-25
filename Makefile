@@ -1,7 +1,7 @@
 PYTHON:=$(shell which python3)
 
 TEST_DIR:=tests
-SRC_DIR:=warehouse
+SRC_DIR:=src/server/warehouse
 VENV_DIR:=venv
 
 ROOT:=$(dir $(realpath $(lastword $(MAKEFILE_LIST))))# https://stackoverflow.com/a/23324703
