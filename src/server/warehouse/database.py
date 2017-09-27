@@ -75,21 +75,25 @@ class Warehouse_DB():
                          'sku': str(sku)})
 
     def del_sku_from_bin(self, num, sku):
+        """ DELETE localhost/api/warehouse/bin{#}/{sku} """
         things = self.bins.filter(lambda bin: bin['bin'] == num and bin['sku'] ==
                 str(sku))
         for bin in things:
             self.bins.delete(bin['__id'])
 
     def register_shoe(self, size, style, sku):
+        """ PUT localhost/api/warehouse/{sku} """
         self.shoes.store({'sku': str(sku),
                           'size': size,
                           'style': style})
 
     def get_bin_info(self, num):
+        """ GET localhost/api/warehouse/bin{#} """
         return [bin for bin in self.bins.all() if bin['bin'] == num]
 
     @property
     def warehouse(self):
+        """ GET localhost/api/warehouse """
         real_bins = []
         for bin in self.bins.all():
             while bin['bin'] >= len(real_bins):
