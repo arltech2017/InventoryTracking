@@ -79,3 +79,5 @@ class Warehouse_DB():
                           'size': size,
                           'style': style})
 
+    def get_bin_info(self, num):
+        return [bin for bin in self.bins.all() if bin['bin'] == num]
