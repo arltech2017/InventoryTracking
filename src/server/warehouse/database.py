@@ -4,6 +4,8 @@ import random
 import json
 from footwear import Boot, DressShoe, CasualShoe
 
+import unqlite
+
 
 def make_catalog(n):
     styles = (("Cowboy", "Hiking", "Rain", "Riding"),
@@ -56,6 +58,24 @@ def save_catalog(catalog, fname):
     f.write(json.dumps(catalog))
     f.close()
 
-def get_bin(num, sku):
-    """select style, size, sku, type from thing"""
-    pass
+
+class Warehouse_DB():
+    def __init__(self, name):
+        self.db = unqlite.UnQLite(name)
+        self.bins = self.db.collection('bins')
+        if not self.bins.exists():
+            self.bins.create()
+        self.shoes = self.db.collection('shoes')
+        if not self.shoes.exists():
+            self.shoes.create()
+
+    def add_sku_to_bin(self, num, sku):
+        """select style, size, sku, type from thing"""
+        self.bins.store({'bin': num,
+                         'sku': sku})
+
+    def register_shoe(self, size, style, sku):
+        self.shoes.store({'sku': sku,
+                          'size': size,
+                          'style': style})
+
