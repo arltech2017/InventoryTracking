@@ -89,6 +89,7 @@ class Warehouse_DB():
 
     def get_bin_info(self, num):
         """ GET localhost/api/warehouse/bin{#} """
+        return self.bins.filter(lambda bin: bin['bin'] == num)
         return [bin for bin in self.bins.all() if bin['bin'] == num]
 
     @property
