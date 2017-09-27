@@ -72,10 +72,10 @@ class Warehouse_DB():
     def add_sku_to_bin(self, num, sku):
         """select style, size, sku, type from thing"""
         self.bins.store({'bin': num,
-                         'sku': sku})
+                         'sku': str(sku)})
 
     def register_shoe(self, size, style, sku):
-        self.shoes.store({'sku': sku,
+        self.shoes.store({'sku': str(sku),
                           'size': size,
                           'style': style})
 
