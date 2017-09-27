@@ -81,3 +81,12 @@ class Warehouse_DB():
 
     def get_bin_info(self, num):
         return [bin for bin in self.bins.all() if bin['bin'] == num]
+
+    @property
+    def warehouse(self):
+        real_bins = []
+        for bin in self.bins.all():
+            while bin['bin'] >= len(real_bins):
+                real_bins.append([])
+            real_bins[bin['bin']].append(bin['sku'])
+        return real_bins
