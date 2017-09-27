@@ -3,5 +3,5 @@ RESTful examples:
   DELETE localhost/api/warehouse/bin{#}/{sku}
   GET localhost/api/warehouse/bin{#}
   PUT localhost/api/warehouse/sku}
-  GET localhost/api/warehouse
-  GET localhost /api
+  GET localhost/map/warehouse
+  GET localhost/api
