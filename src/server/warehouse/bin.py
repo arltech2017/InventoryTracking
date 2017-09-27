@@ -1,6 +1,9 @@
 #!/usr/bin/env python3.6
 # coding=utf-8
+import database
 
+global db
+db = Warehouse_DB()
 
 class BinItem:
     """A warehouse bin item consisting of a sku number and quantity."""
