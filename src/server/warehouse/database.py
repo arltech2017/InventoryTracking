@@ -74,6 +74,12 @@ class Warehouse_DB():
         self.bins.store({'bin': num,
                          'sku': str(sku)})
 
+    def del_sku_from_bin(self, num, sku):
+        things = self.bins.filter(lambda bin: bin['bin'] == num and bin['sku'] ==
+                str(sku))
+        for bin in things:
+            self.bins.delete(bin['__id'])
+
     def register_shoe(self, size, style, sku):
         self.shoes.store({'sku': str(sku),
                           'size': size,
